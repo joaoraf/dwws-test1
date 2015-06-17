@@ -1,12 +1,13 @@
 {
-  "name": "play-silhouette-seed",
+  "name": "dwws-play-oauth",
   "description": "Seed project to show how Silhouette can be implemented into a Play Framework application.",
   "keywords": [
     "Play",
-    "Silhouette"
+    "Silhouette",
+    "DWWS"
   ],
-  "website": "https://github.com/mohiva/play-silhouette-seed",
-  "repository": "https://github.com/mohiva/play-silhouette-seed",
+  "website": "https://github.com/joaoraf/play-silhouette-seed",
+  "repository": "https://github.com/joaoraf/play-silhouette-seed",
   "success_url": "/",
   "env": {
     "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-scala.git",
