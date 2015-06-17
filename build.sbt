@@ -1,6 +1,4 @@
 import scalariform.formatter.preferences._
-import bintray.AttrMap
-import bintray._ 
 
 name := "dwws-test1"
 
@@ -14,9 +12,7 @@ resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
 
 resolvers += Resolver.sonatypeRepo("snapshots")
 
-bintrayPublishSettings
-
-licenses += ("Apache-2.0", "http://www.opensource.org/licenses/apache2.0.php")
+licenses += ("Apache-2.0", url("http://www.opensource.org/licenses/apache2.0.php"))
 
 libraryDependencies ++= Seq(
   "com.mohiva" %% "play-silhouette" % "3.0.0-RC1",
