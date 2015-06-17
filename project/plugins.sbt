@@ -15,7 +15,7 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-scalariform" % "1.3.0")
 
 // Coverage tests
 //
-addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.1.0")
+addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.0.4")
 
 // Publishes coverage results to Coverall
 addSbtPlugin("org.scoverage" % "sbt-coveralls" % "1.0.0")
