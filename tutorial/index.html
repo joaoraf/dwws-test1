@@ -27,12 +27,145 @@
 <div>
 	<h2>Preparação inicial</h2>
 
-	<p>Primeiramente, vamos preparar o projeto para ser importado no Eclipse.</p>
-
 	<ol>
 		<li>Abra o terminal de linha de comando</li>
+		<li>Entre no diretório do projeto</li>
+		<li>Execute: <pre><code># sh rename-project.sh {dwws-test-##}</code></pre> onde '##' é o número da sua máquina.</li>
+		<li>Reinicie o <em>Activator</em> no outro terminal, no diretório do projeto.</li>
+		<li>Execute: <pre><code># sh fix-activator.sh </code></pre> para corrigir um problema do Activator</li>
+		<li>Acompanhe o <a href="#build" class="shortcut">build</a></li>	
 	</ol>
-</div>	
+</div>
+
+<div>
+	<h2>Preparação inicial - Eclipse</h2>
+	<ol>
+		<li>Vá para a aba de <a href="#code" class="shortcut">código</a> e aperte o botão "Eclipse" para criar o projeto do Eclipse<li>
+		<li>No Eclipse, escolha a opção <code>Import &gt; Existing projects into workspace</code> e selecione o diretório do projeto</li>
+	</ol>
+</div>
+
+<div>
+	<h2>Configurando o git</h2>
+	<ol>
+		<li>No terminal, no diretório do projeto, execute:
+		<ul>
+			<li><pre><code># git init</code></pre></li>
+			<li><pre><code># git add .</code></pre></li>
+			<li><pre><code># git commit </code></pre><li>
+		</ul>
+		</li>
+		<li> Digite a mensagem do seu commit inicial.</li>
+	</ol>
+	<p>No Eclipse, lembre-se de apertar F5 para fazer um refresh dos arquivos!</p>
+</div>
+<div>
+	<h2>Publicando o projeto no GitHub</h2>
+	<ol>	
+		<li>Crie uma conta no GitHub, se ainda não tiver</li>
+		<li>Vá para (<a href="https://github.com/new">https://github.com/new</a>) ou aperte o '+' no canto superior direito para criar um novo projeto no GitHub</li>
+		<li>Digite o nome do projeto igual ao nome que foi escolhido anteriormente: 'dwws-test-##'</li>
+		<li>Não marque mais nada, nem adicione <code>.gitignore</code> ou uma licença.</li>
+		<li>Na próxima página, o GitHub informa a url do repositório. Copie-a</li>
+		<li>No terminal, no diretório do projeto, execute:
+		<ul>
+			<li><pre><code># git remote add origin "URL"</code></pre></li>
+			<li><pre><code># git push -u origin master</pre></li>
+		</ul>
+		</li>
+		<li>O git vai solicitar seu usuário e senha do GitHub</li>
+	</ol>
+	<p>Mais uma vez, lembre-se de apertar F5 antes de voltar usar o Eclipse, para que ele enxergue essas mudanças.</p>
+
+</div>
+<div>
+	<h2>Criando contas em vários serviços</h2>
+	
+	<p>Faremos uso de vários serviços. Neste momento, vamos criar contas em cada um deles</p>
+	<p>Primeiramente, vamos criar uma conta no Travis-CI, para realizar integração contínua:</p>
+	<ol>
+		<li>Entre em <a href="https://travis-ci.org">https://travis-ci.org</a> usando a sua conta do GitHub</li>
+		<li>Acrescente o seu repositório ao travis</li>
+		<li>Na configuração do repositório (o ícone da engrenagem), habilite todas as opções e digite '1' no campo 'Concurrent Jobs'	    </ol>
+	<p>Nesse ponto, o Travis já deve estar iniciando um build do seu projeto, o que demora um pouco. Passemos adiante.</p>
+</div>
+<div>
+	<h2>Criando uma conta e projeto no Coveralls</h2>
+	<ol>
+		<li>Entre em <a href="https://coveralls.io">https://coveralls.io</a> usando a sua conta do GitHub</li>
+		<li>Clique em <em>Add Repos</em></li>
+		<li>Habilite o seu projeto e clique em <em>Details</em></li>
+		<li>Encontre na coluna à esquerda o campo <em>REPO_TOKEN</em>. Copie o valor para um arquivo texto. 
+		Esse é o token de autenticação para acessar o coveralls</li>
+	</ol>
+	<p>Agora vamos criar uma conta no Heroku</p>
+</div>
+<div>
+	<h2>Criando uma conta no Heroku</h2>
+	<ol>
+		<li>Entre e cadastre-se em <a href="https://heroku.com">https://heroku.com</a></li>
+		<li>Clique no '+' para criar uma nova applicação</li>
+		<li>Dê o mesmo nome que você usou anteriormente</li>
+		<li>Ao mudar para a aba 'Deploy' escolha o ícone do GitHub e depois clique em <em>Connect to GitHub</em>.
+		  . O Heroku irá solicitar permissão para acessar sua conta do GitHUb.</li>
+		<li>Aperte <em>Search</em> e aperte o botão <em>Connect</em> correspondente ao seu repositório</li>
+		<li>Não selecione mais nada e apenas aperte <em>Deploy Branch</em></li>
+	</ol>
+	<p>Nesse momento o heroku irá fazer o build, o que demora um pouco. Enquanto isso, vamos fazer outras configurações</p>
+</div>
+<div>
+	<h2>Configurando autenticação via GitHub</h2>
+
+	<p>Os serviços abertos de autenticação (Google, Facebook, Twitter, etc) usam em geral o protocolo OpenID, OAuth1 ou OAuth2.
+	   Para integrar sua aplicação a esses servições quase sempre é necessário seguir um procedimento semelhante ao que faremos a
+	   seguir para o GitHub:</p>
+	   <ol>
+		   <li>Entre no GitHub e faça login se necessário</li>
+		   <li>No ícone no canto superior direito, escolha a opção <em>Settings</em></li>
+		   <li>No menu à esquerda, escolha <em>Applications</em></li>
+		   <li>Entre na aba <em>Developer Applications</em></li>
+		   <li>Clique em <em>Register new application</em></li>
+		   <li>Digite o nome do seu projeto</li>
+		   <li>No campo <em>Home Page</em> digite a url <code>https://{nome-aplicacao-heroku}.herokuapp.com</code></li>
+		   <li>No campo <em>Authorization Callback URL</em> digite a url <code>https://{nome-aplicacao-heroku}.herokuapp.com/authenticate/github</code></li>
+		   <li>Ao confirmar, você será levado à uma página que terá duas informações importantes: o seu Client ID e seu Client Secret. Salve ambos em um arquivo texto.</li>
+           </ol>
+</div>
+<div>
+	<h2>Configurando autenticação via GitHub</h2>
+	<ol>
+		<li>Entre no heroku, na página da sua aplicação</li>
+		<li>Clique em settings</li>
+		<li>Clique em <em>Reveal Config vars</em> e aperte <em>Edit</em></li>
+		<li>Adicione a variável: <code>APP_DOMAIN</code> com a URL <code>https://{sua-aplicacao}.herokuapp.com</code> como valor.</li>
+		<li>Adicione a variável: <code>PLAY_SECRET</code> com uma string qualquer aleatória</li>
+		<li>Adicione a variável: <code>PLAY_CONF_FILE</code> com o valor <code>application.prod.conf</code></li>
+		<li>Adicione a variável: <code>GITHUB_AUTH_ID</code> com o seu client ID.</li>
+		<li>Adicione a variável: <code>GITHUB_AUTH_SECRET</code> com o seu client Secret.</li>
+	</ol>
+</div>
+<div>
+	<h2>Configurando o Coveralls</h2>
+	<ol>
+		<li>Entre na sua conta do <a href="https://travis-ci.org">Travis</a></li>
+		<li>Entre no seu projeto</li>
+		<li>Entre em <em>Settings > Environment Variables</em></li>
+		<li>Acrescente a variável <code>COVERALLS_REPO_TOKEN</code> com o REPO_TOKEN do Coveralls que você anotou alguns momentos atrás.</li>
+		<li>DEIXE A OPÇÃO <em>Display Values in Build Logs</em> desmarcada!</li>
+	</ol>
+	<p>Depois do build, o Travis deve publicar um relatório no <a href="https://coveralls.io">Coveralls</a></p>
+</div>
+<div>
+
+	<h2>Últimas considerações</h2>
+	<p>Se tudo estiver certo, a página principal do seu repositório no GitHub deverá possuir algumas imagens mostrando se o <em>build</em> do Travis está OK e o grau de cobertura de código.</p>
+	<p>Teste sua aplicação!</p>
+</div>
+
+	
+
+
+
 
 <!--
     <h2>Project Structure</h2>

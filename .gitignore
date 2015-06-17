@@ -17,3 +17,6 @@ dist
 /.cache-main
 /.cache-tests
 **/*.swp
+/.sbtserver
+/project/target
+/RUNNING_PID
