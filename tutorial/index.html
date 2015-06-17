@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>DWWS - Open Source Development</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
 <div>
@@ -30,9 +32,9 @@
 	<ol>
 		<li>Abra o terminal de linha de comando</li>
 		<li>Entre no diretório do projeto</li>
-		<li>Execute: <pre><code># sh rename-project.sh {dwws-test-##}</code></pre> onde '##' é o número da sua máquina.</li>
+		<li>Execute: <pre><code>sh rename-project.sh {dwws-test-##}</code></pre> onde '##' é o número da sua máquina.</li>
 		<li>Reinicie o <em>Activator</em> no outro terminal, no diretório do projeto.</li>
-		<li>Execute: <pre><code># sh fix-activator.sh </code></pre> para corrigir um problema do Activator</li>
+		<li>Execute: <pre><code>sh fix-activator.sh </code></pre> para corrigir um problema do Activator</li>
 		<li>Acompanhe o <a href="#build" class="shortcut">build</a></li>	
 	</ol>
 </div>
@@ -50,9 +52,9 @@
 	<ol>
 		<li>No terminal, no diretório do projeto, execute:
 		<ul>
-			<li><pre><code># git init</code></pre></li>
-			<li><pre><code># git add .</code></pre></li>
-			<li><pre><code># git commit </code></pre><li>
+			<li><pre><code>git init</code></pre></li>
+			<li><pre><code>git add .</code></pre></li>
+			<li><pre><code>git commit </code></pre><li>
 		</ul>
 		</li>
 		<li> Digite a mensagem do seu commit inicial.</li>
@@ -69,8 +71,8 @@
 		<li>Na próxima página, o GitHub informa a url do repositório. Copie-a</li>
 		<li>No terminal, no diretório do projeto, execute:
 		<ul>
-			<li><pre><code># git remote add origin "URL"</code></pre></li>
-			<li><pre><code># git push -u origin master</pre></li>
+			<li><pre><code>git remote add origin "URL"</code></pre></li>
+			<li><pre><code>git push -u origin master</pre></li>
 		</ul>
 		</li>
 		<li>O git vai solicitar seu usuário e senha do GitHub</li>
@@ -86,7 +88,8 @@
 	<ol>
 		<li>Entre em <a href="https://travis-ci.org">https://travis-ci.org</a> usando a sua conta do GitHub</li>
 		<li>Acrescente o seu repositório ao travis</li>
-		<li>Na configuração do repositório (o ícone da engrenagem), habilite todas as opções e digite '1' no campo 'Concurrent Jobs'	    </ol>
+		<li>Na configuração do repositório (o ícone da engrenagem), habilite todas as opções e digite '1' no campo 'Concurrent Jobs'</li>
+	</ol>
 	<p>Nesse ponto, o Travis já deve estar iniciando um build do seu projeto, o que demora um pouco. Passemos adiante.</p>
 </div>
 <div>
