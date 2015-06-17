@@ -19,3 +19,10 @@ addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.1.0")
 
 // Publishes coverage results to Coverall
 addSbtPlugin("org.scoverage" % "sbt-coveralls" % "1.0.0")
+
+
+// Git access
+addSbtPlugin("com.typesafe.sbt" % "sbt-git" % "0.8.4")
+
+// Bintray
+addSbtPlugin("me.lessis" % "bintray-sbt" % "0.3.0")

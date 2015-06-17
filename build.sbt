@@ -1,8 +1,10 @@
 import scalariform.formatter.preferences._
+import bintray.AttrMap
+import bintray._ 
 
-name := "play-silhouette-seed"
+name := "dwws-test1"
 
-version := "3.0.0-RC1"
+version := "1.0.0-SNAPSHOT"
 
 scalaVersion := "2.11.6"
 
@@ -11,6 +13,10 @@ resolvers := ("Atlassian Releases" at "https://maven.atlassian.com/public/") +: 
 resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
 
 resolvers += Resolver.sonatypeRepo("snapshots")
+
+bintrayPublishSettings
+
+licenses += ("Apache-2.0", "http://www.opensource.org/licenses/apache2.0.php")
 
 libraryDependencies ++= Seq(
   "com.mohiva" %% "play-silhouette" % "3.0.0-RC1",
@@ -24,7 +30,12 @@ libraryDependencies ++= Seq(
   filters
 )
 
-lazy val root = (project in file(".")).enablePlugins(PlayScala)
+git.useGitDescribe := true
+
+lazy val root = (project in file(".")).enablePlugins(
+  PlayScala,
+  GitVersioning
+  )
 
 routesGenerator := InjectedRoutesGenerator
 
