@@ -42,16 +42,12 @@ class CredentialsAuthController @Inject() (
    * @return The result to display.
    */
   def authenticate = Action.async { implicit request =>
-    println("authenticate")
     SignInForm.form.bindFromRequest.fold(
       form => Future.successful(BadRequest(views.html.signIn(form, socialProviderRegistry))),
       credentials => credentialsProvider.authenticate(credentials).flatMap { loginInfo =>
-        println(s"credentials = ${credentials}")
-        println(s"loginInfo[1] = ${loginInfo}")
         val result = Redirect(routes.ApplicationController.index())
         userService.retrieve(loginInfo).flatMap {
           case Some(user) => env.authenticatorService.create(loginInfo).flatMap { authenticator =>
-            println(s"loginInfo[2] = ${loginInfo}")
             env.eventBus.publish(LoginEvent(user, request, request2Messages))
             env.authenticatorService.init(authenticator).flatMap(v => env.authenticatorService.embed(v, result))
           }

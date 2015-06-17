@@ -43,11 +43,9 @@ class SignUpController @Inject() (
    * @return The result to display.
    */
   def signUp = Action.async { implicit request =>
-    println("on signUp")
     SignUpForm.form.bindFromRequest.fold(
       form => Future.successful(BadRequest(views.html.signUp(form))),
       data => {
-        println(s"data=${data}")
         val loginInfo = LoginInfo(CredentialsProvider.ID, data.email)
         userService.retrieve(loginInfo).flatMap {
           case Some(user) =>
