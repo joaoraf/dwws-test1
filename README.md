@@ -7,6 +7,10 @@ DWWS Seed Template - Silhouette - GitHub Authentication
 
 (The "Build App" phase will take a few minutes)
 
+## Status do Build
+
+[![Build Status](https://travis-ci.org/joaoraf/dwws-test1.svg?branch=master)](https://travis-ci.org/joaoraf/dwws-test1)
+
 ## Cobertura
 
 [![Coverage Status](https://coveralls.io/repos/joaoraf/play-silhouette-seed/badge.svg)](https://coveralls.io/r/joaoraf/play-silhouette-seed)
