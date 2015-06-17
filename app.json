@@ -6,8 +6,8 @@
     "Silhouette",
     "DWWS"
   ],
-  "website": "https://github.com/joaoraf/play-silhouette-seed",
-  "repository": "https://github.com/joaoraf/play-silhouette-seed",
+  "website": "https://github.com/joaoraf/dwws-test1",
+  "repository": "https://github.com/joaoraf/dwws-test1",
   "success_url": "/",
   "env": {
     "APP_DOMAIN": "",

@@ -13,7 +13,7 @@ DWWS Seed Template - Silhouette - GitHub Authentication
 
 ## Cobertura
 
-[![Coverage Status](https://coveralls.io/repos/joaoraf/play-silhouette-seed/badge.svg)](https://coveralls.io/r/joaoraf/play-silhouette-seed)
+[![Coverage Status](https://coveralls.io/repos/joaoraf/dwws-test1/badge.svg)](https://coveralls.io/r/joaoraf/dwws-test1)
 
 # License
 
